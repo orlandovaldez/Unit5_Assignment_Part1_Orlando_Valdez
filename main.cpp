@@ -1,3 +1,6 @@
+//
+
+
 #include <iostream>
 #include <iomanip>
 #include <locale>
@@ -20,7 +23,16 @@ int main()
   cout << weeklyPay (55.00, 203.50, "Freedom", 1) << endl;
   cout << weeklyPay (32.50, 100.25, "Tyson", 1) << endl;
   
+  string text1 = "\nTCC-TR IS COOL";
+  string text2 = "\ni will succeed at c++";
+  for(int i = 0; i < text1.length(); i++) 
+  text1[i] = tolower(text1[i]);
+  cout << text1 << endl;
   
+  for(int i = 0; i < text2.length(); i++)
+  text2[i] = toupper(text2[i]);
+  cout << text2 << endl;
+
   return 0;
 }
 
@@ -41,7 +53,8 @@ double weeklyPay(double hours, double rate, string name, int empType)
   {
     cout << toupper(name[i],loc); 
   } 
-cout << reset << endl;  //display name of employee in accordance to all capitals
+cout << reset << endl;  
+//display name of employee in accordance to all capitals
 
   status = (empType == 1 ) ? "Fulltime" : "Parttime";
   
