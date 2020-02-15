@@ -33,10 +33,18 @@ double weeklyPay(double hours, double rate, string name, int empType)
   locale loc;
   string status = "";
 
-  cout << name << endl; //display name of employee in accordance
+  string reset = "\x1b[0m";
+  string color = "\x1b[" + to_string(31) + ";1m";
+
+  cout << color << endl;
+  for(int i = 0; i < name.length(); i++ )
+  {
+    cout << toupper(name[i],loc); 
+  } 
+cout << reset << endl;  //display name of employee in accordance to all capitals
 
   status = (empType == 1 ) ? "Fulltime" : "Parttime";
-  cout << "\tStatus: " << status << endl;
+  
 
   overTimeIfAny = ((hours - clockHours) > 0.0 ) ? (hours-clockHours) : 0.0; 
   //Processing
@@ -61,7 +69,15 @@ double weeklyPay(double hours, double rate, string name, int empType)
   netPay = grossPay - (dental + retirement + fitTax + sSwages + medWages);
 
   //Output
-  
+  cout << "Status: " << status << endl;
+  cout << "Gross Pay: $" << grossPay << endl;
+  cout << "Dental Deduction: $" << dental << endl;
+  cout << "Retirement Deduction: $" << retirement << endl;
+  cout << "Taxable Wages: $" << taxableWages << endl;
+  cout << "Federal Income Tax: $" << fitTax << endl;
+  cout << "Social Security Taxes: $" << sSwages << endl;
+  cout << "Medicare Taxes: $" << medWages << endl;
+  cout << "Net Pay: $";
 
 
   return netPay;
